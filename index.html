@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Race — собственная реализация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>🏁 Мой Promise.race</h1>
+        <p class="subtitle">Домашнее задание: собственная функция race() — побеждает первый завершившийся Promise</p>
+
+        <button id="start-btn">Запустить гонку</button>
+
+        <!-- Индикатор загрузки, пока участники «отвечают» -->
+        <div id="spinner" class="spinner hidden"></div>
+
+        <!-- Победитель исполнился (fulfilled) -->
+        <section id="result" class="result hidden">
+            <h2>Победитель — fulfilled</h2>
+            <p class="winner">🏆 <span id="winner-text"></span></p>
+            <p class="time">Время гонки: <span id="race-time"></span> мс</p>
+            <p class="native">Сверка с нативным Promise.race: <span id="native-check-ok"></span></p>
+        </section>
+
+        <!-- Победитель отклонился (rejected) -->
+        <section id="error" class="error hidden">
+            <h2>Победитель — rejected</h2>
+            <p id="error-text"></p>
+            <p class="time">Время гонки: <span id="race-time-err"></span> мс</p>
+            <p class="native">Сверка с нативным Promise.race: <span id="native-check-err"></span></p>
+        </section>
+
+        <!-- Журнал: кто и когда финишировал -->
+        <section id="log" class="log hidden">
+            <h2>Журнал гонки</h2>
+            <ul id="log-list"></ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
